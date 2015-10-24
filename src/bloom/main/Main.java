@@ -12,9 +12,6 @@ public class Main {
         ArrayList<Command> commands = new ArrayList<>();
         try {
             commands.add(new MyCashCommand(server));
-            commands.add(new MyOrdersCommand(server));
-            commands.add(new MySecuritiesCommand(server));
-            commands.add(new SecuritiesCommand(server));
 
             for (Command command : commands) {
                 command.execute();
