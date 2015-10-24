@@ -35,21 +35,21 @@ public class ExchangeClient {
 
             while(true){
                 Scanner input = new Scanner(System.in);
-                String inLine = input.next();
+                String inLine = input.nextLine();
                 if(inLine.equals("QUIT")) break;
+                if(inLine.equals("ORDERS")) printOrders();
                 pout.println(inLine);
-
 
                 pout.flush();
                 String line;
-                while ((line = bin.readLine()) != null) {
-                    System.out.println(line);
-                    System.out.println("NSFKSKFN");
-
-                }
-
+                line = bin.readLine();
+                //while ((line = bin.readLine()) != "") {
+                System.out.println(line);
 
             }
+            pout.println("CLOSE_CONNECTION");
+            bin.close();
+            pout.close();
             // for (int i = 4; i < args.length; i++) {
             //     pout.println(args[i]);
             //
@@ -79,9 +79,9 @@ public class ExchangeClient {
                 // pout.close();
                 // bin.close();
 
-pout.println("CLOSE_CONNECTION");
-                bin.close();
-                pout.close();
+
 
       }
+
+      
 }
