@@ -35,12 +35,23 @@ public class ExchangeClientFast {
 
             String[] stocks = {"AAPL", "ATVI", "EA", "FB", "GOOG", "MSFT", "SBUX", "SNY", "TSLA", "TWTR"};
             int[] prevPrices = new int[10];
+            String secureLine = "";
             for(int j = 0; j < 1000; j++){
                 for(int z = 0; z < stocks.length; z++){
+                  String blackHole = "";
+
+                  System.out.println("///////////////////START////////////////////////");
+                  //----------CHECKS NET WORTH AND COMPARES TO PAST----------------
                   pout.println("SECURITIES");
                   pout.flush();
                   int netWorth = 0;
-                  String secureLine = bin.readLine();
+                  String tempSecure;
+                  if((tempSecure = bin.readLine()) != null){
+                    secureLine = tempSecure;
+                    System.out.println("//secureLine has been reset");
+                  }
+
+                  System.out.println("Securities_Out: " + secureLine);
                   for(int q = 0; q < secureLine.length() - stocks[z].length(); q++){
                     //System.out.println(q);
                     if((secureLine.substring(q, q+(stocks[z].length()))).equals(stocks[z])){
@@ -56,11 +67,16 @@ public class ExchangeClientFast {
                     prevPrices[z] = netWorth;
                     continue;
                   }
+
+                  if(bin.ready()) blackHole = bin.readLine(); //flushing again
                   prevPrices[z] = netWorth;
                   pout.println("ORDERS " + stocks[z]);
+                  Thread.sleep(1000);
                   pout.flush();
                   String line = bin.readLine();
-                  System.out.println(line);
+
+
+                  System.out.println("Line: " + line);
                   if((line.substring(0, 5)).equals("ERROR")) {
                     System.out.println("BBBBREREEEEEAAAAK!!!!!!!!!");
                     continue;
@@ -76,12 +92,12 @@ public class ExchangeClientFast {
                       if(whiteSpaceCount == 2){
                         biddingPrice = line.substring(i, prevWhiteSpaceChar);
                         //biddingPrice = Integer.parseInt(temp);
-                        System.out.println(biddingPrice);
+                        System.out.println(stocks[z] + " Bidding Price :" + biddingPrice);
                       }
                       else if(whiteSpaceCount == 6){
                         askingPrice = line.substring(i, prevWhiteSpaceChar);
                         //askingPrice = Integer.parseInt(tempAsk);
-                        System.out.println(askingPrice);
+                        System.out.println(stocks[z] + " Asking Price :" + askingPrice);
                       }
                       else{
                         prevWhiteSpaceChar = i;
@@ -106,8 +122,8 @@ public class ExchangeClientFast {
                   //line = bin.readLine();
                   //System.out.println(line);
                   Thread.sleep(1000);
-
-
+                  //if(bin.ready()) blackHole = bin.readLine(); //flushing again
+                  System.out.println("++++++++++++++++++++++++++++END OF STOCK+++++++++++++++++++++++++++++");
                 }
 
                 // Scanner input = new Scanner(System.in);
