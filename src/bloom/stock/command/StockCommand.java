@@ -2,7 +2,6 @@ package bloom.stock.command;
 
 import bloom.stock.Server;
 import bloom.stock.Stock;
-import bloom.stock.command.Command;
 
 public abstract class StockCommand extends Command {
     private Stock stock;
@@ -21,7 +20,7 @@ public abstract class StockCommand extends Command {
 
     @Override
     public void execute() {
-        this.server.write(this.type + " " + this.stock.getName() + " " + this.prices + " " + this.shares);
+        this.server.write(this.type + " " + this.stock.getTicker() + " " + this.prices + " " + this.shares);
         this.result = this.getOutput();
     }
 }

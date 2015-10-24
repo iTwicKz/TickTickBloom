@@ -13,7 +13,7 @@ public class OrdersCommand extends Command {
 
     @Override
     public void execute() {
-        this.server.write("ORDERS " + this.stock.getName());
+        this.server.write("ORDERS " + this.stock.getTicker());
         this.result = this.getOutput();
     }
 }

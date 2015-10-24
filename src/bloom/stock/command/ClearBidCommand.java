@@ -12,7 +12,7 @@ public class ClearBidCommand extends Command {
 
     @Override
     public void execute() {
-        this.server.write("CLEAR_BID " + stock.getName());
+        this.server.write("CLEAR_BID " + stock.getTicker());
         this.result = this.getResult();
     }
 }

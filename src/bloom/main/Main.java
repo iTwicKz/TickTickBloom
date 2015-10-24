@@ -20,12 +20,20 @@ public class Main {
 
             commands.add(new OrdersCommand(GOOG, info_server));
 
+            SecuritiesCommand securities = new SecuritiesCommand(info_server);
+            securities.execute();
+            StockMap stocks = new StockMap(securities.getResult());
+
             for (Command command : commands) {
                 command.execute();
                 System.out.println(command.getResult());
             }
+
+            System.out.println(stocks);
+
         } finally {
             info_server.close();
+            write_server.close();
         }
     }
 }

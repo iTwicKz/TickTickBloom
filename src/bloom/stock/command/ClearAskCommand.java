@@ -13,7 +13,7 @@ public class ClearAskCommand extends Command {
 
     @Override
     public void execute() {
-        this.server.write("CLEAR_ASK " + stock.getName());
+        this.server.write("CLEAR_ASK " + stock.getTicker());
         this.result = this.getResult();
     }
 }
