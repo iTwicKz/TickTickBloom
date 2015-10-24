@@ -1,4 +1,6 @@
-package bloom.stock;
+package bloom.stock.command;
+
+import bloom.stock.Server;
 
 import java.io.IOException;
 import java.util.ArrayList;

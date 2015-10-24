@@ -1,4 +1,8 @@
-package bloom.stock;
+package bloom.stock.command;
+
+import bloom.stock.Server;
+import bloom.stock.Stock;
+import bloom.stock.command.Command;
 
 public abstract class StockCommand extends Command {
     private Stock stock;

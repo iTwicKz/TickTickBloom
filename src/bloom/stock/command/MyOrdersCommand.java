@@ -1,4 +1,6 @@
-package bloom.stock;
+package bloom.stock.command;
+
+import bloom.stock.Server;
 
 public class MyOrdersCommand extends Command {
     public MyOrdersCommand(Server server) {

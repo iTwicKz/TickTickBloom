@@ -1,4 +1,6 @@
-package bloom.stock;
+package bloom.stock.command;
+
+import bloom.stock.Server;
 
 public class MyCashCommand extends Command {
     public MyCashCommand(Server server) {

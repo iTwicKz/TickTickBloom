@@ -1,4 +1,7 @@
-package bloom.stock;
+package bloom.stock.command;
+
+import bloom.stock.Server;
+import bloom.stock.Stock;
 
 public class ClearAskCommand extends Command {
     private Stock stock;
