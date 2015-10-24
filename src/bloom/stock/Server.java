@@ -17,9 +17,6 @@ public class Server {
     private PrintWriter pout;
     private BufferedReader bin;
 
-    private String input;
-    private String output;
-
     private String user;
     private String pass;
 
