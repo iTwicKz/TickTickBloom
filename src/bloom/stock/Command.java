@@ -1,7 +1,8 @@
 package bloom.stock;
 
-/**
- * Created by alex on 10/23/15.
- */
+import java.util.ArrayList;
+
 public interface Command {
+    void execute();
+    ArrayList<String> getOutput();
 }

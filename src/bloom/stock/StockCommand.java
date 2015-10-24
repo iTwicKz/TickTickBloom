@@ -3,11 +3,13 @@ package bloom.stock;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class StockCommand implements Command {
+public abstract class StockCommand implements Command {
     private Stock stock;
     private int prices;
     private int shares;
     private Server server;
+
+    protected String type;
 
     public StockCommand(Stock stock, int prices, int shares, Server server) {
         this.stock = stock;
@@ -17,7 +19,7 @@ public class StockCommand implements Command {
     }
 
     public void execute() {
-        this.server.write("BID " + this.stock.getName() + " " + this.prices + " " + this.shares);
+        this.server.write(this.type + " " + this.stock.getName() + " " + this.prices + " " + this.shares);
     }
 
     public ArrayList<String> getOutput() {

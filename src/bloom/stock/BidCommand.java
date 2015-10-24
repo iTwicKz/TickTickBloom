@@ -1,7 +1,8 @@
 package bloom.stock;
 
-/**
- * Created by alex on 10/23/15.
- */
-public class BidCommand {
+public class BidCommand extends StockCommand {
+    public BidCommand(Stock stock, int prices, int shares, Server server) {
+        super(stock, prices, shares, server);
+        this.type = "BID";
+    }
 }
