@@ -18,15 +18,19 @@ public abstract class StockCommand implements Command {
         this.server = server;
     }
 
+    @Override
     public void execute() {
         this.server.write(this.type + " " + this.stock.getName() + " " + this.prices + " " + this.shares);
     }
 
+    @Override
     public ArrayList<String> getOutput() {
         try {
             return this.server.getOutput();
         } catch (IOException e) {
-            return new ArrayList<String>();
+            ArrayList<String> error = new ArrayList<String>();
+            error.add("error");
+            return error;
         }
     }
 }
