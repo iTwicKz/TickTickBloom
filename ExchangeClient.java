@@ -21,25 +21,30 @@ public class ExchangeClient {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        if (args.length < 5) {
-            System.out.println("Usage: \nclientTask <host> <port> <user> <password> <command...>");
 
-        }
-        Socket socket = new Socket(args[0], Integer.parseInt(args[1]));
-        PrintWriter pout = new PrintWriter(socket.getOutputStream());
-        BufferedReader bin = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-        pout.println(args[2] + " " + args[3]);
-        for (int i = 4; i < args.length; i++) {
-            pout.println(args[i]);
-        }
-        pout.println("CLOSE_CONNECTION");
-        pout.flush();
-        String line;
-        while ((line = bin.readLine()) != null) {
-            System.out.println(line);
-        }
-        pout.close();
-        bin.close();
+            inputArr[0] = "codebb.cloudapp.net";
+
+            if (args.length < 5) {
+                System.out.println("Usage: \nclientTask <host> <port> <user> <password> <command...>");
+
+            }
+            Socket socket = new Socket(args[0], Integer.parseInt(args[1]));
+            PrintWriter pout = new PrintWriter(socket.getOutputStream());
+            BufferedReader bin = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            pout.println(args[2] + " " + args[3]);
+            for (int i = 4; i < args.length; i++) {
+                pout.println(args[i]);
+
+                pout.println("MY_ORDERS");
+                pout.println("CLOSE_CONNECTION");
+                pout.flush();
+                String line;
+                while ((line = bin.readLine()) != null) {
+                    System.out.println(line);
     }
+                pout.close();
+                bin.close();
+            }
+
 
 }
