@@ -1,3 +1,5 @@
+codebb.cloudapp.net 17429
+
 DISCLAIMER: The HELP command returns more than 1 line and may negatively impact programs dependend on some getline() function. You shouldn't be calling HELP in your programs anyways.
 
 MY_CASH - output your current cash.
